@@ -1,0 +1,11 @@
+name: vt-env
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - streamlit
+  - pandas
+  - plotly
+  - tqdm
+prefix: /home/tomm/miniconda3/envs/vt-env

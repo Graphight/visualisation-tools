@@ -1,7 +1,7 @@
 import streamlit as st
 
-from plotting import *
-from workers import *
+from .plotting import plot_budkyo_sellers_model_albedo, plot_budkyo_sellers_model_temp
+from .workers import Budyko_Sellers_model
 
 
 KELVIN_OFFSET = 273.15
@@ -65,7 +65,7 @@ def show_graphs(
     ))
 
 
-def main():
+def budkyo_sellers_page():
     st.title("Budkyo-Sellers")
     st.header("One dimensional energy balance model")
 
@@ -111,7 +111,7 @@ def main():
         value=False
     )
 
-    st.sidebar.button(label="Reset sliders", on_click=reset_options)
+    st.sidebar.button(label="Reset sliders", key="bt_bs_reset", on_click=reset_options)
 
     show_graphs(
         solar_input,
@@ -123,4 +123,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    budkyo_sellers_page()

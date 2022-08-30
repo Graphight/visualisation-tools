@@ -1,7 +1,7 @@
 import streamlit as st
 
-from plotting import *
-from workers import daisyworld_model
+from .plotting import plot_daisy_coverage, plot_planetary_temperature
+from .workers import daisyworld_model
 
 
 def update_temps(should_tether, direction):
@@ -87,7 +87,7 @@ def show_graphs(
     ))
 
 
-def main():
+def daisy_world_page():
     st.title("Daisy World")
 
     tether_temps = st.sidebar.checkbox(
@@ -153,7 +153,7 @@ def main():
         value=False
     )
 
-    st.sidebar.button(label="Reset sliders", on_click=reset_options)
+    st.sidebar.button(label="Reset sliders", key="bt_dw_reset", on_click=reset_options)
 
     show_graphs(
         temp_ideal_black,
@@ -167,4 +167,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    daisy_world_page()

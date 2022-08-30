@@ -8,4 +8,7 @@ dependencies:
   - pandas
   - plotly
   - tqdm
+  - pip
+  - pip:
+    - fair
 prefix: /home/tomm/miniconda3/envs/vt-env

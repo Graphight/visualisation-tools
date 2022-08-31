@@ -26,19 +26,19 @@ def plot_emissions(original_emissions, half_emissions, double_emissions, column_
     return fig
 
 
-def plot_carbon_concentrations(original_emissions, half_emissions, double_emissions):
+def plot_carbon_concentrations(original_emissions, half_emissions, double_emissions, column_index, units):
     C45_original, F45_original, T45_original = compute_fair(original_emissions)
     C45_half, F45_half, T45_half = compute_fair(half_emissions)
     C45_double, F45_double, T45_double = compute_fair(double_emissions)
 
     fig = plt.figure(figsize=(10,8), dpi=200)
 
-    plt.plot(rcp45.Emissions.year, C45_original[:, 0], color='orange', label='RCP4.5 original')
-    plt.plot(rcp45.Emissions.year, C45_half[:, 0], color='blue', label='RCP4.5 half')
-    plt.plot(rcp45.Emissions.year, C45_double[:, 0], color='black', label='RCP4.5 double')
+    plt.plot(rcp45.Emissions.year, C45_original[:, column_index], color='orange', label='RCP4.5 original')
+    plt.plot(rcp45.Emissions.year, C45_half[:, column_index], color='blue', label='RCP4.5 half')
+    plt.plot(rcp45.Emissions.year, C45_double[:, column_index], color='black', label='RCP4.5 double')
 
     plt.title("CO2 concentrations over time")
-    plt.ylabel('CO$_2$ concentrations (ppm)')
+    plt.ylabel(f'CO2 concentrations ({units})')
     plt.legend()
 
     return fig

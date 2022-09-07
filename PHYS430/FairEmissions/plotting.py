@@ -20,7 +20,7 @@ def plot_emissions(original_emissions, half_emissions, double_emissions, column_
     plt.plot(rcp45.Emissions.year, double_emissions[:, column_index], color='black', label='RCP4.5 double')
 
     plt.title("Emissions over time")
-    plt.ylabel(f'Fossil Emissions {units}')
+    plt.ylabel(f'Emissions {units}')
     plt.legend()
 
     return fig
@@ -37,8 +37,8 @@ def plot_carbon_concentrations(original_emissions, half_emissions, double_emissi
     plt.plot(rcp45.Emissions.year, C45_half[:, column_index], color='blue', label='RCP4.5 half')
     plt.plot(rcp45.Emissions.year, C45_double[:, column_index], color='black', label='RCP4.5 double')
 
-    plt.title("CO2 concentrations over time")
-    plt.ylabel(f'CO2 concentrations ({units})')
+    plt.title("Concentrations over time")
+    plt.ylabel(f'Concentrations ({units})')
     plt.legend()
 
     return fig

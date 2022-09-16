@@ -1,0 +1,77 @@
+% -----------------------------------------------------------------------------
+%
+% Copyright (c) 2017 Sam Cox, Roberto Sommariva
+%
+% This file is part of the AtChem2 software package.
+%
+% This file is covered by the MIT license which can be found in the file
+% LICENSE.md at the top level of the AtChem2 distribution.
+%
+% -----------------------------------------------------------------------------
+
+% -------------------- PREAMBLE -------------------- %
+\documentclass[11pt,a4paper]{report}
+\usepackage{helvet,graphicx,hyperref,color}
+\usepackage{fancyhdr,caption,natbib}
+\usepackage[nottoc]{tocbibind}
+\usepackage[version=3]{mhchem}
+
+\pagestyle{fancy}
+\setlength{\headheight}{13.6pt}
+\rhead{\leftmark}
+\lhead{}
+
+\renewcommand{\bibname}{References}
+\frenchspacing
+
+% shortcuts
+\newcommand{\maindir}{\texttt{\em Main Directory}}
+\newcommand{\depdir}{\texttt{\em Dependency Directory}}
+\newcommand{\sharedir}{\texttt{\em Shared Library Directory}}
+
+\newcommand{\degc}{^\circ\mathrm{C}}
+
+% figures
+\graphicspath{{../figures/}}
+
+% -------------------- DOCUMENT -------------------- %
+\begin{document}
+
+% -------------------------------- %
+% Vertical Line Title Page
+%
+% Template created by P. Wilson, modified by Vel
+% https://www.latextemplates.com/template/vertical-line-title-page
+%
+% License: CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+\begin{titlepage}
+  \raggedleft   % Right align the title page
+  \rule{1pt}{\textheight}  % Vertical line
+  \hspace{0.05\textwidth}
+  % Box for the title page text
+  \parbox[b]{0.75\textwidth}{
+    {\Huge\bfseries AtChem2\\[0.5\baselineskip] v1.2.1}\\[2\baselineskip]  % Title
+    {\LARGE\textit{User Manual}}\\[4\baselineskip]  % Subtitle
+    {\Large\textsc{R. Sommariva\\S. Cox}}  % Author(s)
+    \vspace{0.5\textheight}\\
+    {\noindent \today}\\[\baselineskip]  % Date
+    }
+
+\end{titlepage}
+
+% -------------------------------- %
+
+\tableofcontents
+
+\include{Introduction}
+\include{Installation}
+\include{Setup}
+\include{Execution}
+\include{Development}
+\include{Credits}
+
+\bibliographystyle{abbrvnat}
+\bibliography{References}
+
+\end{document}

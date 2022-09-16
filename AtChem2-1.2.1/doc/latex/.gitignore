@@ -1,0 +1,7 @@
+# Ignore latex auxiliary files in this directory
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg

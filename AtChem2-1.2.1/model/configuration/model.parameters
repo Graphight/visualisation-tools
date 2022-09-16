@@ -1,0 +1,14 @@
+43680           number of steps
+7200          step size (seconds)
+2            species interpolation method (pw constant = 1, pw linear = 2)
+2            conditions interpolation method (pw constant = 1, pw linear = 2)
+3600         rates output step size - ROPA/RODA (seconds)
+0            model start time (seconds)
+0            jacobian output step size (seconds)
+-77.5057        latitude (degrees: North is positive, South is negative)
+166.4606         longitude (degrees: West is positive, East is negative)
+01           day
+01           month
+2022         year
+1800         reaction rates output step size (seconds)
+

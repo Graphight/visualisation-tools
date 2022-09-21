@@ -5,6 +5,8 @@ from tools.streamlit_pages.run_atchem2 import run_atchem2
 from tools.streamlit_pages.generate_plots import generate_plots
 from tools.streamlit_pages.location_picker import location_picker
 from tools.streamlit_pages.step_calculator import step_calculator
+from tools.streamlit_pages.chemical_equations import kinetics_equations, SATP_equations
+from tools.streamlit_pages.edit_constraints import edit_constraints_environment, edit_constraints_species
 
 
 def main():
@@ -15,14 +17,29 @@ def main():
 
     st.sidebar.header("Here are some basic setup things")
 
-    show_configuration = st.sidebar.checkbox(
-        label="Edit configuration?",
-        value=False
-    )
     show_output = st.sidebar.checkbox(
         label="Show AtChem output?",
         value=False
     )
+
+    if st.sidebar.checkbox(
+        label="Edit configuration?",
+        value=False
+    ):
+        edit_config()
+
+    if st.sidebar.checkbox(
+        label="Edit environment constraints?",
+        value=False
+    ):
+        edit_constraints_environment()
+
+    if st.sidebar.checkbox(
+        label="Edit species constraints?",
+        value=False
+    ):
+        edit_constraints_species()
+
     drop_spin_up = st.sidebar.checkbox(
         label="Skip spin up period?",
         value=False
@@ -34,9 +51,6 @@ def main():
 
     step_calculator()
 
-    if show_configuration:
-        edit_config()
-
     # Main page
 
     st.header("Run the simulation")
@@ -47,6 +61,15 @@ def main():
     )
 
     generate_plots(drop_spin_up)
+
+    st.header("Chemical Equations")
+    if st.checkbox(
+        label="Did you want to do some kinetics equations?"
+    ):
+        kinetics_equations()
+    if st.checkbox(
+        label="Did you want to do some SATP equations?"
+    ): SATP_equations()
 
 
 if __name__ == "__main__":

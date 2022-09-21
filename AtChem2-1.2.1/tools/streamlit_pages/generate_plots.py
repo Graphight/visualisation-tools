@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
+from tools.streamlit_pages.step_calculator import time_parser
+
 
 MODEL_OUTPUT_DIR = "model/output"
 
@@ -128,7 +130,14 @@ def generate_photolysis_rates_params_plot(starting_seconds):
 
 
 def generate_plots(drop_start=False):
-    starting_seconds = 172800 if drop_start else 0
+    st.header("Plotting")
+    if drop_start:
+        starting_seconds = time_parser(st.text_input(
+            label="What is your spin up period?",
+            value="2 days"
+        ))
+    else:
+        starting_seconds = 0
 
     st.button(
         label="Generate species concentrations plot",

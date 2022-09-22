@@ -25,16 +25,16 @@ def show_example_constraint(key):
 
 
 def generate_file(key):
-    chosen_time_step = time_parser(st.text_input(
-        label="How often did you want to change your value?",
-        value="1 year",
-        key=f"generate_time_step_{key}"
-    ))
-
     chosen_length = time_parser(st.text_input(
         label="How long do you want to generate?",
         value="10 years",
         key=f"generate_length_{key}"
+    ))
+
+    chosen_time_step = time_parser(st.text_input(
+        label="How often did you want to change your value?",
+        value="1 year",
+        key=f"generate_time_step_{key}"
     ))
 
     current_value = st.number_input(
@@ -56,7 +56,7 @@ def generate_file(key):
         current_value = round(current_value + chosen_increment, 2)
         output += f"\n{current_time}\t{current_value}"
 
-    st.success("Generated your file", key=f"generate_success_{key}")
+    st.success("Generated your file")
     return output
 
 
@@ -87,12 +87,10 @@ def edit_constraints_environment():
     if st.checkbox("Im feeling lazy, help me generate the file", key="lazy_environment"):
         content = st_ace(
             value=generate_file("environment"),
-            key="st_ace_environment"
         )
     else:
         content = st_ace(
             value=read_file(environment_file_map[chosen_constraint]),
-            key="st_ace_environment"
         )
     write_file(environment_file_map[chosen_constraint], content)
 
@@ -144,12 +142,10 @@ def edit_constraints_species():
 
     if st.checkbox("Im feeling lazy, help me generate the file", key="lazy_species"):
         content = st_ace(
-            value=generate_file("species"),
-            key="st_ace_species"
+            value=generate_file("species")
         )
     else:
         content = st_ace(
-            value=read_file(species_file_map[chosen_constraint]),
-            key="st_ace_species"
+            value=read_file(species_file_map[chosen_constraint])
         )
     write_file(species_file_map[chosen_constraint], content)

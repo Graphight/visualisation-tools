@@ -11,12 +11,15 @@ def time_parser(time_str):
     seconds_in_hour = seconds_in_minute * 60
     seconds_in_day = seconds_in_hour * 24
     seconds_in_week = seconds_in_day * 7
+    seconds_in_month = seconds_in_day * 365.25 / 12
     seconds_in_year = seconds_in_day * 365.25
 
     time_value = float(parts[0])
     time_word = parts[1]
     if "YEAR" in time_word:
         output = time_value * seconds_in_year
+    elif "MONTH" in time_word:
+        output = time_value * seconds_in_month
     elif "WEEK" in time_word:
         output = time_value * seconds_in_week
     elif "DAY" in time_word:

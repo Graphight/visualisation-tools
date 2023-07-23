@@ -8,7 +8,6 @@ import numpy as np
 import streamlit as st
 
 
-@st.cache
 def Budyko_Sellers_model_temperature_initialisation(Temp,S0,relaxation_coefficient,CO2_concentration):
     # In this version of the model we use the last temperature configuration
 
@@ -117,7 +116,6 @@ def Budyko_Sellers_model_temperature_initialisation(Temp,S0,relaxation_coefficie
     return phi,Temp,albedo,tplanet[t]
 
 
-@st.cache
 def Budyko_Sellers_model(phiedgeIC,S0,relaxation_coefficient,CO2_concentration):
     # CONSTANTS
 

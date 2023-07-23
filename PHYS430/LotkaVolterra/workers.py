@@ -10,7 +10,6 @@ import numpy as np
 import streamlit as st
 
 
-@st.cache
 def Lotka_Volterra(X, t, alpha, beta, gamma, delta):
     """ Return the growth rate of predator and prey populations
     based on the Lotka Volterra equations.

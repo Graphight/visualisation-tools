@@ -7,7 +7,6 @@ import streamlit as st
 from fair.RCPs import rcp3pd, rcp45, rcp6, rcp85
 
 
-@st.cache
 def compute_fair(emissions):
     return fair.forward.fair_scm(emissions=emissions)
 
